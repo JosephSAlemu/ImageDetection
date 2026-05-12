@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CudaCompile Include="kernel.cu" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="_Framework">
       <UniqueIdentifier>{6180676d-7b15-42c0-84be-24538ea5b309}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{758997e7-04f7-44d0-9d8d-146e78e40d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Include">
+      <UniqueIdentifier>{8817628e-62b6-47c1-b991-ee45771fd488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Images">
+      <UniqueIdentifier>{eb58f99e-5ce8-4beb-b933-323ca9da244e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\RGBTOGRAY">
+      <UniqueIdentifier>{ad8bec49-00ce-4a52-988f-8c77805c8814}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -23,5 +32,59 @@
     <ClInclude Include="..\Framework\Framework.h">
       <Filter>_Framework</Filter>
     </ClInclude>
+    <ClInclude Include="lodepngHelper.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="lodepng.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageGray.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageRGB.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelGray.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelRGB.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel.cuh">
+      <Filter>src\RGBTOGRAY</Filter>
+    </ClInclude>
+    <ClInclude Include="Host.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lodepngHelper.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
+    <ClCompile Include="lodepng.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageGray.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageRGB.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Host.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="0_image.RGB.png">
+      <Filter>src\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu">
+      <Filter>src\RGBTOGRAY</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>

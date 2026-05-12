@@ -90,16 +90,31 @@
     <CudaCompile Include="kernel.cu" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Host.cpp" />
+    <ClCompile Include="ImageGray.cpp" />
+    <ClCompile Include="ImageRGB.cpp" />
+    <ClCompile Include="lodepng.cpp" />
+    <ClCompile Include="lodepngHelper.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Framework\CudaFramework.h" />
     <ClInclude Include="..\Framework\CudaStats.cuh" />
     <ClInclude Include="..\Framework\Framework.h" />
+    <ClInclude Include="Host.h" />
+    <ClInclude Include="ImageGray.h" />
+    <ClInclude Include="ImageRGB.h" />
     <ClInclude Include="kernel.cuh" />
+    <ClInclude Include="lodepng.h" />
+    <ClInclude Include="lodepngHelper.h" />
+    <ClInclude Include="PixelGray.h" />
+    <ClInclude Include="PixelRGB.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Framework\__DO NOT MODIFY__" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="0_image.RGB.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
