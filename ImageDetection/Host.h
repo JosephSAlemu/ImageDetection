@@ -8,7 +8,8 @@
 #include "ImageRGB.h"
 #include "ImageGray.h"
 
-void Host_ImageProcess(ImageGray &rImageGrayOut, ImageRGB  &rImageRGBIn);
+void Host_ImageProcess_one(ImageGray &rImageGrayOut, ImageRGB  &rImageRGBIn);
+void Host_ImageProcess_two(ImageGray& rImageGrayOut, ImageGray& rImageGrayIn, unsigned char Threshold);
 
 #endif
 

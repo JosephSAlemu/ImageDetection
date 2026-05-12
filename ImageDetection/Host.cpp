@@ -4,7 +4,7 @@
 
 #include "Host.h"
 
-void Host_ImageProcess(ImageGray &rImageGrayOut, ImageRGB &rImageRGBIn)
+void Host_ImageProcess_one(ImageGray &rImageGrayOut, ImageRGB &rImageRGBIn)
 {
 	unsigned int width = rImageRGBIn.Width();
 	unsigned int height = rImageRGBIn.Height();
@@ -24,5 +24,33 @@ void Host_ImageProcess(ImageGray &rImageGrayOut, ImageRGB &rImageRGBIn)
 		}
 	}
 }
+
+void Host_ImageProcess_two(ImageGray& rImageGrayOut, ImageGray& rImageGrayIn, unsigned char Threshold)
+{
+	unsigned int width = rImageGrayIn.Width();
+	unsigned int height = rImageGrayIn.Height();
+
+	PixelGray* pPixelIn = rImageGrayIn.GetPixelGray();
+	PixelGray* pPixelOut = rImageGrayOut.GetPixelGray();
+
+	for (unsigned int row = 0; row < height; row++)
+	{
+		for (unsigned int col = 0; col < width; col++)
+		{
+			unsigned int index = row * width + col;
+
+			if (pPixelIn[index].v > Threshold)
+			{
+				pPixelOut[index].v = 0xFF;
+			}
+			else
+			{
+				pPixelOut[index].v = 0x0;
+			}
+
+		}
+	}
+}
+
 
 // --- End of File ---
