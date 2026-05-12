@@ -65,9 +65,6 @@ void step_one()
 	}
 	tDevice.Toc();
 
-
-
-
 	// --------------------------------------
 	// Timings
 	// --------------------------------------
@@ -114,8 +111,6 @@ void step_two()
 	}
 	tHost.Toc();
 
-	Image_Out_h.WritePngImage(pOutputName);
-
 	// --------------------------------------
 	// Device
 	// --------------------------------------
@@ -143,11 +138,69 @@ void step_two()
 	}
 }
 
+void step_three()
+{
+	START_BANNER_MAIN("--Main--");
+	Trace::out("\n");
+
+	const char* pInputName = "2_image_Threshold.Gray.png";
+	const char* pOutputName = "3_image_Invert.Gray.png";
+
+	CudaTry(cudaSetDevice(0));
+
+	// --------------------------------------
+	// Host
+	// --------------------------------------
+
+	ImageGray Image_In;
+	Image_In.LoadPngImage(pInputName);
+
+	ImageGray Image_Out_h;
+	ImageGray Image_Out_d;
+	Image_Out_h.InitializeEmpty(Image_In.Width(), Image_In.Height());
+	Image_Out_d.InitializeEmpty(Image_In.Width(), Image_In.Height());
+
+	PerformanceTimer tHost;
+	PerformanceTimer tDevice;
+
+	tHost.Tic();
+	{
+		Host_ImageProcess_three(Image_Out_h, Image_In);
+	}
+	tHost.Toc();
+
+	// --------------------------------------
+	// Device
+	// --------------------------------------
+
+	tDevice.Tic();
+	{
+		Device_ImageProcess_three(Image_Out_d, Image_In);
+	}
+	tDevice.Toc();
+
+	// --------------------------------------
+	// Timings
+	// --------------------------------------
+
+	if (isSameImage(Image_Out_h, Image_Out_d))
+	{
+		Trace::out("  Host: %f ms\n", tHost.TimeInMilliSeconds());
+		Trace::out("  Device: %f ms\n", tDevice.TimeInMilliSeconds());
+		Trace::out("\n");
+		Image_Out_h.WritePngImage(pOutputName);
+	}
+	else
+	{
+		Trace::out("ERROR NOT SAME IMAGE!");
+	}
+}
+
 int main()
 {
 	START_BANNER_MAIN("--Main--");
-	step_one();
-	step_two();
-
+	//step_one();
+	//step_two();
+	step_three();
 
 }

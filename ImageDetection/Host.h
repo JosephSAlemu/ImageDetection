@@ -10,6 +10,7 @@
 
 void Host_ImageProcess_one(ImageGray &rImageGrayOut, ImageRGB  &rImageRGBIn);
 void Host_ImageProcess_two(ImageGray& rImageGrayOut, ImageGray& rImageGrayIn, unsigned char Threshold);
+void Host_ImageProcess_three(ImageGray& rImageGrayOut, ImageGray& rImageGrayIn);
 
 #endif
 

@@ -5,3 +5,4 @@
 #include "ImageRGB.h"
 void Device_ImageProcess_one(ImageGray& rImageGrayOut, ImageRGB& rImageRGBIn);
 void Device_ImageProcess_two(ImageGray& rImageGrayOut, ImageGray& rImageGrayIn, unsigned char Threshold);
+void Device_ImageProcess_three(ImageGray& rImageGrayOut, ImageGray& rImageGrayIn);
