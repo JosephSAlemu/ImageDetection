@@ -37,13 +37,10 @@ struct ImageGray
 	// -------------------------------
 	// Data
 	// -------------------------------
-
-	// Public so I can CudaMemCpy.
-	PixelGray* pPixelGray;
-
 private:
 
 	PixelGrayStorage *poRawImage;
+	PixelGray        *pPixelGray;
 	unsigned int     mWidth;
 	unsigned int     mHeight;
 	unsigned int     mPixelCount;

@@ -12,7 +12,7 @@
 // Cuda error handling
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "Framework.h"
 namespace Cuda
 {
 	namespace Trace

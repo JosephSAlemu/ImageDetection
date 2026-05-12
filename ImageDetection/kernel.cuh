@@ -3,4 +3,4 @@
 #include <stdio.h>
 #include "ImageGray.h"
 #include "ImageRGB.h"
-cudaError_t Device_ImageProcess(ImageGray& rImageGrayOut, ImageRGB& rImageRGBIn);
+void Device_ImageProcess(ImageGray& rImageGrayOut, ImageRGB& rImageRGBIn);
