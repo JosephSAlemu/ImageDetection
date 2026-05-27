@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{04721936-B6DE-520B-443C-2A1953C1938C}</ProjectGuid>
     <RootNamespace>ImageDetection</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -49,6 +50,8 @@
       <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);WINDOWS_TARGET_PLATFORM="$(TargetPlatformVersion)";SOLUTION_DIR=R"($(SolutionDir))";TOOLS_VERSION=R"($(VCToolsVersion))";LOCAL_WORKING_DIR=R"($(LocalDebuggerWorkingDirectory))"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)Framework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Framework.h</ForcedIncludeFiles>
+      <LanguageStandard>Default</LanguageStandard>
+      <AdditionalOptions>/Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -57,6 +60,9 @@
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
+      <CodeGeneration>compute_86,sm_86</CodeGeneration>
+      <Include>
+      </Include>
     </CudaCompile>
     <PreBuildEvent>
       <Command>if exist "$(SolutionDir)Azul" rmdir /S /Q "$(SolutionDir)Azul"</Command>
@@ -71,6 +77,8 @@
       <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);WINDOWS_TARGET_PLATFORM="$(TargetPlatformVersion)";SOLUTION_DIR=R"($(SolutionDir))";TOOLS_VERSION=R"($(VCToolsVersion))";LOCAL_WORKING_DIR=R"($(LocalDebuggerWorkingDirectory))"</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)Framework;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>Framework.h</ForcedIncludeFiles>
+      <LanguageStandard>Default</LanguageStandard>
+      <AdditionalOptions>/Zc:preprocessor %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -81,6 +89,9 @@
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
+      <CodeGeneration>compute_86,sm_86</CodeGeneration>
+      <Include>
+      </Include>
     </CudaCompile>
     <PreBuildEvent>
       <Command>if exist "$(SolutionDir)Azul" rmdir /S /Q "$(SolutionDir)Azul"</Command>
@@ -90,17 +101,20 @@
     <CudaCompile Include="kernel.cu" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Host.cpp" />
     <ClCompile Include="ImageGray.cpp" />
     <ClCompile Include="ImageRGB.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="lodepngHelper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Point.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Framework\CudaFramework.h" />
     <ClInclude Include="..\Framework\CudaStats.cuh" />
     <ClInclude Include="..\Framework\Framework.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="Host.h" />
     <ClInclude Include="ImageGray.h" />
     <ClInclude Include="ImageRGB.h" />
@@ -109,6 +123,7 @@
     <ClInclude Include="lodepngHelper.h" />
     <ClInclude Include="PixelGray.h" />
     <ClInclude Include="PixelRGB.h" />
+    <ClInclude Include="Point.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Framework\__DO NOT MODIFY__" />

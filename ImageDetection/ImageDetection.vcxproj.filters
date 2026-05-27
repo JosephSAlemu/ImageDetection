@@ -13,7 +13,7 @@
     <Filter Include="src\Images">
       <UniqueIdentifier>{eb58f99e-5ce8-4beb-b933-323ca9da244e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\RGBTOGRAY">
+    <Filter Include="src\CUDA">
       <UniqueIdentifier>{ad8bec49-00ce-4a52-988f-8c77805c8814}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -51,9 +51,15 @@
       <Filter>_Include</Filter>
     </ClInclude>
     <ClInclude Include="kernel.cuh">
-      <Filter>src\RGBTOGRAY</Filter>
+      <Filter>src\CUDA</Filter>
     </ClInclude>
     <ClInclude Include="Host.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>_Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
       <Filter>_Include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -76,6 +82,12 @@
     <ClCompile Include="Host.cpp">
       <Filter>_Include</Filter>
     </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>_Include</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="0_image.RGB.png">
@@ -84,7 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <CudaCompile Include="kernel.cu">
-      <Filter>src\RGBTOGRAY</Filter>
+      <Filter>src\CUDA</Filter>
     </CudaCompile>
   </ItemGroup>
 </Project>
